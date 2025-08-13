@@ -1,0 +1,33 @@
+Python-->
+class Solution:
+    def deleteNode(self, head, k):
+        if k == 1:
+            return head.next
+        curr = head
+        for _ in range(k - 2):
+            curr = curr.next
+        curr.next = curr.next.next
+        return head
+
+
+c-->
+struct node {
+    int data;
+    struct node* next;
+};
+struct node* deleteNode(struct node* head, int k) {
+    if (k == 1) {
+        struct node* temp = head;
+        head = head->next;
+        free(temp);
+        return head;
+    }
+    struct node* curr = head;
+    for (int i = 0; i < k - 2; i++) {
+        curr = curr->next;
+    }
+    struct node* temp = curr->next;
+    curr->next = temp->next;
+    free(temp);
+    return head;
+}
