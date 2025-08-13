@@ -1,0 +1,28 @@
+Python-->
+class Solution:
+    def reverseList(self, head):
+        prev = None
+        curr = head
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
+
+
+c-->
+struct Node {
+    int data;
+    struct Node* next;
+};
+struct Node* reverseList(struct Node* head) {
+    struct Node *prev = NULL, *curr = head, *next = NULL;
+    while (curr) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
