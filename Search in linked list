@@ -1,0 +1,25 @@
+Python-->
+class Solution:
+    def searchKey(self, n, head, key):
+        curr = head
+        while curr:
+            if curr.data == key:
+                return True
+            curr = curr.next
+        return False
+
+
+c-->
+struct Node {
+    int data;
+    struct Node* next;
+};
+int searchKey(int n, struct Node* head, int key) {
+    struct Node* curr = head;
+    while (curr != NULL) {
+        if (curr->data == key)
+            return 1; 
+        curr = curr->next;
+    }
+    return 0; 
+}
